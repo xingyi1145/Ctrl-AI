@@ -41,6 +41,7 @@ class CtrlAIApp:
         self.ai = AIHandler()
         self.gui = None
         self.captured_text_for_commander = ""
+        self.current_mode = "commander"
         self.active_toast = None
 
         if GUI_AVAILABLE:
@@ -83,17 +84,21 @@ class CtrlAIApp:
         if text:
             print(f"[Commander] Context captured: '{text[:20]}...'")
             self.captured_text_for_commander = text
-            # 2. Show UI
-            # Use `after` to schedule GUI update safely in main thread if possible, 
-            # or relying on ctk thread safety. Best practice is `after`.
-            # Since self.gui is running in main thread and we are in listener thread:
-            self.gui.after(0, self.gui.show_overlay)
+            self.current_mode = "commander"
+            self.gui.after(0, lambda: self._show_overlay_for_mode("commander"))
         else:
             print("[Commander] No text selected.")
 
+    def _show_overlay_for_mode(self, mode):
+        self.gui.configure_mode(mode)
+        self.gui.show_overlay()
+
     def on_commander_submit(self, prompt):
-        print(f"[Commander] Prompt: {prompt}")
-        threading.Thread(target=self.process_commander, args=(prompt,)).start()
+        print(f"[{self.current_mode.capitalize()}] Prompt: {prompt}")
+        if self.current_mode == "explain":
+            threading.Thread(target=self.process_explain, args=(prompt,)).start()
+        else:
+            threading.Thread(target=self.process_commander, args=(prompt,)).start()
 
     def process_commander(self, prompt):
         logging.info(f"Processing Commander: {prompt}")
@@ -113,8 +118,13 @@ class CtrlAIApp:
         pass  # REMOVED in v2.0
 
     def on_explain(self):
-        logging.info("[Explain] Triggered (Ctrl+Shift+E)")
-        print("[Explain] Triggered (Ctrl+Shift+E)")
+        logging.info("[Explain] Triggered (Ctrl+Alt+E)")
+        print("[Explain] Triggered (Ctrl+Alt+E)")
+
+        if not self.gui:
+            print("Explain mode requires GUI (tkinter missing).")
+            return
+
         text = capture_selection()
         if not text:
             logging.warning("[Explain] No text selected.")
@@ -123,17 +133,19 @@ class CtrlAIApp:
             threading.Timer(1.0, self.hide_progress).start()
             return
 
-        logging.info(f"[Explain] Processing text: '{text[:50]}...'")
-        print(f"[Explain] Processing text: '{text[:50]}...'")
-        threading.Thread(target=self.process_explain, args=(text,)).start()
+        print(f"[Explain] Context captured: '{text[:20]}...'")
+        self.captured_text_for_commander = text
+        self.current_mode = "explain"
+        self.gui.after(0, lambda: self._show_overlay_for_mode("explain"))
 
-    def process_explain(self, text):
-        logging.info("[Explain] Sending to AI...")
-        print("[Explain] Sending to AI...")
+    def process_explain(self, user_question):
+        logging.info(f"[Explain] Question: {user_question}")
+        print(f"[Explain] Question: {user_question}")
         self.show_progress("Explaining...")
         
         try:
-            result = self.ai.process_text(text, mode="explain")
+            original = self.captured_text_for_commander
+            result = self.ai.process_text(original, mode="explain", prompt_instruction=user_question)
             logging.info("[Explain] Showing explanation...")
             print("[Explain] Showing explanation...")
             if self.gui:

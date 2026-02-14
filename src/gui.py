@@ -128,6 +128,15 @@ class OverlayApp(ctk.CTk):
         """Opens the ExplanationWindow to display AI explanation (read-only)."""
         ExplanationWindow(self, content)
 
+    def configure_mode(self, mode_name):
+        """Switch the overlay appearance between 'commander' and 'explain' modes."""
+        if mode_name == "explain":
+            self.label.configure(text="\u2753 Ask")
+            self.entry.configure(placeholder_text="What do you want to know about this text?")
+        else:
+            self.label.configure(text="\u2728 AI")
+            self.entry.configure(placeholder_text="Type a command (e.g., 'Fix grammar', 'Make professional')...")
+
 class DiffWindow(ctk.CTkToplevel):
     """Human-in-the-loop review window showing original vs AI proposal side-by-side."""
 
