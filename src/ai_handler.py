@@ -40,10 +40,10 @@ class AIHandler:
         if self.provider == "mock":
             print("AIHandler: Using mock provider.")
             
-    def process_text(self, text, mode="refactor", prompt_instruction=None):
+    def process_text(self, text, mode="commander", prompt_instruction=None):
         """
         Process the text based on the mode.
-        mode: 'refactor', 'redactor', 'commander'
+        mode: 'commander', 'explain'
         prompt_instruction: Used for 'commander' mode (e.g. "Translate to Spanish")
         """
         
@@ -66,33 +66,26 @@ class AIHandler:
     def _mock_response(self, text, mode, prompt_instruction):
         time.sleep(1) # Simulate network delay
         
-        if mode == "refactor":
-            return f"[Refactored] {text}\n(Fixed grammar and logic)"
-            
-        elif mode == "redactor":
-            return f"[Redacted] <PII REMOVED> Summary of: {text[:20]}..."
-            
-        elif mode == "commander":
+        if mode == "commander":
             return f"[Commander: {prompt_instruction}] {text}"
+            
+        elif mode == "explain":
+            return f"[Explanation] This text contains {len(text.split())} words and appears to be a code/text snippet."
             
         return text
 
     def _call_gemini(self, text, mode, prompt_instruction):
         system_instruction = ""
         
-        if mode == "refactor":
-            system_instruction = "You are an expert code cleaner. Fix grammar, optimize logic, and format cleanly. Output ONLY the result."
-            user_content = text
-            
-        elif mode == "redactor":
-            system_instruction = "You are a privacy officer. Remove all PII (names, emails, phones) and replace with <REDACTED>. Output ONLY the sanitized text."
-            user_content = text
-            
-        elif mode == "commander":
+        if mode == "commander":
             system_instruction = "Execute the user's specific instruction on the text. Output ONLY the result."
             user_content = f"Instruction: {prompt_instruction}\n\nText:\n{text}"
+            
+        elif mode == "explain":
+            system_instruction = "You are an expert technical educator. Explain the selected text or code clearly and concisely. Do not explain what you are doing, just provide the explanation."
+            user_content = text
+            
         else:
-             # Default fallback
             system_instruction = "Process the following text:"
             user_content = text
 
@@ -109,28 +102,20 @@ class AIHandler:
         system_prompt = ""
         user_prompt = ""
         
-        if mode == "refactor":
-            system_prompt = (
-                "You are an expert code and text editor. Your task is to fix grammar, spelling, and optimize the logic/clarity of the provided text/code. "
-                "Output ONLY the corrected version. Do not add conversational filler like 'Here is the fixed code'."
-            )
-            user_prompt = f"Optimize/Fix this:\n\n{text}"
-            
-        elif mode == "redactor":
-            system_prompt = (
-                "You are a privacy officer. Your task is to remove PII (Personal Identifiable Information) from the text "
-                "such as names, emails, phones, and addresses. Replace them with <REDACTED>. "
-                "Also remove fluff and summarize slightly if verbose. Output ONLY the sanitized text."
-            )
-            user_prompt = f"Redact this:\n\n{text}"
-            
-        elif mode == "commander":
+        if mode == "commander":
             system_prompt = (
                 "You are a helpful AI assistant integrated into the user's OS. "
                 "Execute the user's specific instruction on the provided text. "
                 "Output ONLY the result. Do not add quotes around the result unless requested."
             )
             user_prompt = f"Instruction: {prompt_instruction}\n\nText to process:\n{text}"
+            
+        elif mode == "explain":
+            system_prompt = (
+                "You are an expert technical educator. Explain the selected text or code clearly and concisely. "
+                "Do not explain what you are doing, just provide the explanation."
+            )
+            user_prompt = f"Explain this:\n\n{text}"
 
         completion = self.client.chat.completions.create(
             messages=[

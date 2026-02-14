@@ -107,63 +107,38 @@ class CtrlAIApp:
             self.hide_progress()
 
     def on_refactor(self):
-        logging.info("[Refactor] Triggered (Ctrl+Shift+H)")
-        print("[Refactor] Triggered (Ctrl+Shift+H)")
-        # 1. Grab text
-        text = capture_selection()
-        if not text:
-            logging.warning("[Refactor] No text selected.")
-            print("[Refactor] No text selected.")
-            # Show a quick failure toast?
-            self.show_progress("No text selected")
-            threading.Timer(1.0, self.hide_progress).start()
-            return
-
-        logging.info(f"[Refactor] Processing text: '{text[:50]}...'")
-        print(f"[Refactor] Processing text: '{text[:50]}...'")
-
-        # 2. Send to LLM
-        # "Ghost Mode" - processing in background
-        threading.Thread(target=self.process_refactor, args=(text,)).start()
-
-    def process_refactor(self, text):
-        logging.info("[Refactor] Sending to AI...")
-        print("[Refactor] Sending to AI...")
-        self.show_progress("Refactoring...")
-        
-        try:
-            result = self.ai.process_text(text, mode="refactor")
-            logging.info("[Refactor] Showing diff for review...")
-            print("[Refactor] Showing diff for review...")
-            self._show_diff_or_paste(text, result)
-        finally:
-            self.hide_progress()
+        pass  # REMOVED in v2.0
 
     def on_redactor(self):
-        logging.info("[Redactor] Triggered (Ctrl+Shift+D)")
-        print("[Redactor] Triggered (Ctrl+Shift+D)")
+        pass  # REMOVED in v2.0
+
+    def on_explain(self):
+        logging.info("[Explain] Triggered (Ctrl+Shift+E)")
+        print("[Explain] Triggered (Ctrl+Shift+E)")
         text = capture_selection()
         if not text:
-            logging.warning("[Redactor] No text selected.")
-            print("[Redactor] No text selected.")
+            logging.warning("[Explain] No text selected.")
+            print("[Explain] No text selected.")
             self.show_progress("No text selected")
             threading.Timer(1.0, self.hide_progress).start()
             return
-            
-        logging.info(f"[Redactor] Processing text: '{text[:50]}...'")
-        print(f"[Redactor] Processing text: '{text[:50]}...'")
-        threading.Thread(target=self.process_redactor, args=(text,)).start()
 
-    def process_redactor(self, text):
-        logging.info("[Redactor] Sanitizing...")
-        print("[Redactor] Sanitizing...")
-        self.show_progress("Redacting...")
+        logging.info(f"[Explain] Processing text: '{text[:50]}...'")
+        print(f"[Explain] Processing text: '{text[:50]}...'")
+        threading.Thread(target=self.process_explain, args=(text,)).start()
+
+    def process_explain(self, text):
+        logging.info("[Explain] Sending to AI...")
+        print("[Explain] Sending to AI...")
+        self.show_progress("Explaining...")
         
         try:
-            result = self.ai.process_text(text, mode="redactor")
-            logging.info("[Redactor] Showing diff for review...")
-            print("[Redactor] Showing diff for review...")
-            self._show_diff_or_paste(text, result)
+            result = self.ai.process_text(text, mode="explain")
+            logging.info("[Explain] Showing explanation...")
+            print("[Explain] Showing explanation...")
+            if self.gui:
+                self.gui.after(0, lambda: self.gui.show_explanation(result))
+            logging.info("[Explain] Done.")
         finally:
             self.hide_progress()
 
@@ -199,11 +174,8 @@ class CtrlAIApp:
                 logging.info("Registering hotkey: ctrl+space")
                 keyboard_lib.add_hotkey('ctrl+space', self.on_commander)
                 
-                logging.info("Registering hotkey: ctrl+shift+h")
-                keyboard_lib.add_hotkey('ctrl+shift+h', self.on_refactor)
-                
-                logging.info("Registering hotkey: ctrl+shift+d")
-                keyboard_lib.add_hotkey('ctrl+shift+d', self.on_redactor)
+                logging.info("Registering hotkey: ctrl+alt+e")
+                keyboard_lib.add_hotkey('ctrl+alt+e', self.on_explain)
                 
                 logging.info("Waiting for hotkeys...")
                 keyboard_lib.wait()
@@ -220,8 +192,7 @@ class CtrlAIApp:
             # pynput format: <modifier>+<key>
             hotkeys = {
                 '<ctrl>+<space>': self.on_commander,
-                '<ctrl>+<shift>+h': self.on_refactor,
-                '<ctrl>+<shift>+d': self.on_redactor
+                '<ctrl>+<alt>+e': self.on_explain
             }
             
             with pynput_keyboard.GlobalHotKeys(hotkeys) as self.listener:
@@ -234,11 +205,10 @@ class CtrlAIApp:
             print("Critical Error: No valid keyboard backend found (install 'keyboard' or 'pynput').")
 
     def start(self):
-        print("Starting Ctrl+AI...")
+        print("Starting Ctrl+AI v2.0...")
         print("Hotkeys:")
         print("  Commander: Ctrl+Space")
-        print("  Refactor:  Ctrl+Shift+H")
-        print("  Redactor:  Ctrl+Shift+D")
+        print("  Explain:   Ctrl+Alt+E")
         print("Press Ctrl+C to exit.")
 
         # Start listener in a separate thread so GUI can run in main thread

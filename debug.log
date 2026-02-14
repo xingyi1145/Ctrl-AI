@@ -168,3 +168,75 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-02-14 12:22:37,168 Processing Commander: tell me where is the grammer issue
 2026-02-14 12:22:38,749 Commander done.
 2026-02-14 12:22:47,085 [Diff] User accepted. Pasting...
+2026-02-14 12:27:33,303 Main script starting...
+2026-02-14 12:27:33,432  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 12:27:33,432 Initializing App
+2026-02-14 12:27:34,364 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 12:27:37,483 [Redactor] Triggered (Ctrl+Shift+D)
+2026-02-14 12:27:37,604 [Redactor] Processing text: '新建文件夹...'
+2026-02-14 12:27:37,606 [Redactor] Sanitizing...
+2026-02-14 12:27:38,806 [Redactor] Showing diff for review...
+2026-02-14 12:27:49,535 [Redactor] Triggered (Ctrl+Shift+D)
+2026-02-14 12:27:49,659 [Redactor] Processing text: '新建文件夹...'
+2026-02-14 12:27:49,660 [Redactor] Sanitizing...
+2026-02-14 12:27:50,580 [Redactor] Showing diff for review...
+2026-02-14 12:36:10,708 [Commander] Triggered (Ctrl+Space)
+2026-02-14 12:36:15,841 Processing Commander: fix grammer
+2026-02-14 12:36:24,040 Commander done.
+2026-02-14 12:37:21,251 [Diff] User accepted. Pasting...
+2026-02-14 12:43:09,746 Main script starting...
+2026-02-14 12:43:09,894  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 12:43:09,894 Initializing App
+2026-02-14 12:43:10,812 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 12:44:33,246 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:44:33,830 [Explain] No text selected.
+2026-02-14 12:44:41,789 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:44:42,370 [Explain] No text selected.
+2026-02-14 12:45:49,424 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:45:50,004 [Explain] No text selected.
+2026-02-14 12:45:53,737 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:45:54,314 [Explain] No text selected.
+2026-02-14 12:46:08,766 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:46:09,325 [Explain] No text selected.
+2026-02-14 12:46:15,877 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:46:16,457 [Explain] No text selected.
+2026-02-14 12:46:41,024 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:46:41,605 [Explain] No text selected.
+2026-02-14 12:46:44,678 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:46:45,245 [Explain] No text selected.
+2026-02-14 12:46:52,205 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:46:52,775 [Explain] No text selected.
+2026-02-14 12:47:22,573 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 12:47:23,142 [Explain] No text selected.
+2026-02-14 12:47:26,322 [Commander] Triggered (Ctrl+Space)
+2026-02-14 13:07:39,318 Main script starting...
+2026-02-14 13:07:39,469  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 13:07:39,469 Initializing App
+2026-02-14 13:07:40,549 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 13:07:51,396 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:07:51,968 [Explain] No text selected.
+2026-02-14 13:07:56,342 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:07:56,924 [Explain] No text selected.
+2026-02-14 13:09:11,590 [Commander] Triggered (Ctrl+Space)
+2026-02-14 13:09:16,470 [Commander] Triggered (Ctrl+Space)
+2026-02-14 13:09:24,881 [Commander] Triggered (Ctrl+Space)
+2026-02-14 13:09:28,278 [Commander] Triggered (Ctrl+Space)
+2026-02-14 13:11:24,220 Main script starting...
+2026-02-14 13:11:48,670 Main script starting...
+2026-02-14 13:11:48,815  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 13:11:48,815 Initializing App
+2026-02-14 13:11:49,724 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 13:12:21,655 Main script starting...
+2026-02-14 13:12:21,816  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 13:12:21,816 Initializing App
+2026-02-14 13:12:22,715 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 13:12:37,888 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:12:38,471 [Explain] No text selected.
+2026-02-14 13:12:40,533 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:12:41,110 [Explain] No text selected.
+2026-02-14 13:12:44,860 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:12:45,439 [Explain] No text selected.
+2026-02-14 13:12:55,584 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:12:56,158 [Explain] No text selected.
+2026-02-14 13:13:05,291 [Explain] Triggered (Ctrl+Shift+E)
+2026-02-14 13:13:05,862 [Explain] No text selected.
