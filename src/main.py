@@ -42,7 +42,9 @@ def create_icon():
         # Look for Ctrl+AI.png in the project root (one level up from src)
         icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Ctrl+AI.png')
         if os.path.exists(icon_path):
-             return Image.open(icon_path)
+             img = Image.open(icon_path)
+             img = img.resize((64, 64), Image.LANCZOS)
+             return img
     except Exception as e:
         logging.warning(f"Could not load Ctrl+AI.png: {e}")
 
