@@ -96,12 +96,11 @@ class AIHandler:
             system_instruction = "Process the following text:"
             user_content = text
 
-        # Gemini 2.5 Flash isn't a standard model name yet, assuming 2.0 Flash or 1.5 Flash based on 'Flash' request.
-        # Using 'gemini-2.0-flash' as requested by intent (latest fast model).
+        # Using 'gemini-2.5-flash' as requested.
         # We prepend system instruction to user prompt as requested.
         full_prompt = f"{system_instruction}\n\n{user_content}"
         
-        model = self.client.GenerativeModel('gemini-2.0-flash')
+        model = self.client.GenerativeModel('gemini-2.5-flash')
         response = model.generate_content(full_prompt)
         
         return response.text.strip()
