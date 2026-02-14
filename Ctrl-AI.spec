@@ -5,7 +5,7 @@ a = Analysis(
     ['src\\main.py'],
     pathex=[],
     binaries=[],
-    datas=[('D:\\Projects\\Ctrl-Hack\\.venv\\Lib\\site-packages\\customtkinter', 'customtkinter/')],
+    datas=[('D:\\Projects\\Ctrl-Hack\\.venv\\Lib\\site-packages\\customtkinter', 'customtkinter/'), ('Ctrl+AI.png', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
