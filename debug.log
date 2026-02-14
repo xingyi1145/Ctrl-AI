@@ -54,3 +54,51 @@
 2026-02-13 23:21:43,177 Registering hotkey: ctrl+shift+h
 2026-02-13 23:21:43,177 Registering hotkey: ctrl+shift+d
 2026-02-13 23:21:43,177 Waiting for hotkeys...
+2026-02-13 23:31:17,921 Main script starting...
+2026-02-13 23:31:30,060 Main script starting...
+2026-02-13 23:31:30,295  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-13 23:31:30,295 Initializing App
+2026-02-13 23:31:31,014 Starting Hotkey Listener (Backend: pynput)...
+2026-02-13 23:32:04,766 Main script starting...
+2026-02-13 23:32:04,899  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-13 23:32:04,899 Initializing App
+2026-02-13 23:32:05,455 Starting Hotkey Listener (Backend: pynput)...
+2026-02-13 23:32:07,843 [Commander] Triggered (Ctrl+Space)
+2026-02-13 23:32:19,420 Processing Commander: what does this line do
+2026-02-13 23:32:19,478 Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-48940cf5-1d33-4494-a813-ad30b5fb1d73', 'json_data': {'messages': [{'role': 'system', 'content': "You are a helpful AI assistant integrated into the user's OS. Execute the user's specific instruction on the provided text. Output ONLY the result. Do not add quotes around the result unless requested."}, {'role': 'user', 'content': 'Instruction: what does this line do\n\nText to process:\n Ctrl+Space'}], 'model': 'llama3-70b-8192', 'max_tokens': 1024, 'stop': None, 'stream': False, 'temperature': 0.3, 'top_p': 1}}
+2026-02-13 23:32:19,490 Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-02-13 23:32:19,490 connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-02-13 23:32:19,527 connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000209F2C06910>
+2026-02-13 23:32:19,527 start_tls.started ssl_context=<ssl.SSLContext object at 0x00000209F2B52CC0> server_hostname='api.groq.com' timeout=5.0
+2026-02-13 23:32:19,539 start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000209F2EB5FD0>
+2026-02-13 23:32:19,539 send_request_headers.started request=<Request [b'POST']>
+2026-02-13 23:32:19,539 send_request_headers.complete
+2026-02-13 23:32:19,539 send_request_body.started request=<Request [b'POST']>
+2026-02-13 23:32:19,539 send_request_body.complete
+2026-02-13 23:32:19,539 receive_response_headers.started request=<Request [b'POST']>
+2026-02-13 23:32:19,563 receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Sat, 14 Feb 2026 04:32:20 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'96'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'yul'), (b'x-request-id', b'req_01khd6qkfwfbjtbzfcrhakx71w'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=CU15PPqU.NerpiGWeQl7iKP51vvCT28PO1Rg2kxehFg-1771043540.4648538-1.0.1.1-OereIU2tHW.wYNHa9pME0j.vrLG.BvsO6WMQhn84.RDntmJagOptpgBiPX0vz9JZTbnTRfFnwqcc3CiwhnQf1mAFZddrv0rj8l87QGS0xqkl8gWNbJpa4q7Gv8cmpexT; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 14 Feb 2026 05:02:20 GMT'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'CF-RAY', b'9cd9d74fe8b51707-YYZ'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-02-13 23:32:19,563 HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-13 23:32:19,563 receive_response_body.started request=<Request [b'POST']>
+2026-02-13 23:32:19,563 receive_response_body.complete
+2026-02-13 23:32:19,563 response_closed.started
+2026-02-13 23:32:19,563 response_closed.complete
+2026-02-13 23:32:19,563 HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "401 Unauthorized" Headers({'date': 'Sat, 14 Feb 2026 04:32:20 GMT', 'content-type': 'application/json', 'content-length': '96', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'yul', 'x-request-id': 'req_01khd6qkfwfbjtbzfcrhakx71w', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=CU15PPqU.NerpiGWeQl7iKP51vvCT28PO1Rg2kxehFg-1771043540.4648538-1.0.1.1-OereIU2tHW.wYNHa9pME0j.vrLG.BvsO6WMQhn84.RDntmJagOptpgBiPX0vz9JZTbnTRfFnwqcc3CiwhnQf1mAFZddrv0rj8l87QGS0xqkl8gWNbJpa4q7Gv8cmpexT; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 14 Feb 2026 05:02:20 GMT', 'strict-transport-security': 'max-age=15552000', 'cf-ray': '9cd9d74fe8b51707-YYZ', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-02-13 23:32:19,563 Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "D:\Projects\Ctrl-Hack\.venv\Lib\site-packages\groq\_base_client.py", line 1024, in request
+    response.raise_for_status()
+  File "D:\Projects\Ctrl-Hack\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.groq.com/openai/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-02-13 23:32:19,563 Not retrying
+2026-02-13 23:32:19,563 Re-raising status error
+2026-02-13 23:32:20,581 Commander done.
+2026-02-13 23:34:01,486 Main script starting...
+2026-02-13 23:34:01,628  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-13 23:34:01,628 Initializing App
+2026-02-13 23:34:02,676 Starting Hotkey Listener (Backend: pynput)...
+2026-02-13 23:34:09,446 [Refactor] Triggered (Ctrl+Shift+H)
+2026-02-13 23:34:10,018 [Refactor] No text selected.
+2026-02-13 23:34:30,278 [Refactor] Triggered (Ctrl+Shift+H)
+2026-02-13 23:34:30,852 [Refactor] No text selected.
