@@ -7,10 +7,19 @@ import traceback
 logging.basicConfig(filename='debug.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 logging.info("Main script starting...")
 
+import sys
 import time
 import threading
 import pystray
 from PIL import Image, ImageDraw
+
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller bundle."""
+    if hasattr(sys, '_MEIPASS'):
+        # Running as a bundled exe
+        return os.path.join(sys._MEIPASS, relative_path)
+    # Running from source: go up one level from src/
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), relative_path)
 
 try:
     import keyboard as keyboard_lib # Use updated name to avoid conflict with pynput variable if mixed
@@ -39,8 +48,7 @@ except ImportError as e:
 def create_icon():
     # Try to load custom icon
     try:
-        # Look for Ctrl+AI.png in the project root (one level up from src)
-        icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Ctrl+AI.png')
+        icon_path = resource_path('Ctrl+AI.png')
         if os.path.exists(icon_path):
              img = Image.open(icon_path)
              img = img.resize((64, 64), Image.LANCZOS)
@@ -81,8 +89,7 @@ class CtrlAIApp:
             
             # Set window icon if available
             try:
-                # Look for Ctrl+AI.png in the project root (one level up from src)
-                icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Ctrl+AI.png')
+                icon_path = resource_path('Ctrl+AI.png')
                 if os.path.exists(icon_path):
                     # For CustomTkinter/Tkinter on Windows, iconbitmap expects .ico mostly, 
                     # but wm_iconphoto allows PNG.

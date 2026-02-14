@@ -671,3 +671,175 @@ I am experiencing a bu...'
 2026-02-14 17:56:11,322 Importing XpmImagePlugin
 2026-02-14 17:56:11,323 Importing XVThumbImagePlugin
 2026-02-14 17:56:18,207 Stopping app from tray...
+2026-02-14 17:59:20,161 Main script starting...
+2026-02-14 17:59:20,345  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 17:59:20,345 Initializing App
+2026-02-14 17:59:21,450 STREAM b'IHDR' 16 13
+2026-02-14 17:59:21,450 STREAM b'iTXt' 41 790
+2026-02-14 17:59:21,450 STREAM b'IDAT' 843 8192
+2026-02-14 17:59:21,517 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 17:59:21,518 STREAM b'IHDR' 16 13
+2026-02-14 17:59:21,518 STREAM b'iTXt' 41 790
+2026-02-14 17:59:21,518 STREAM b'IDAT' 843 8192
+2026-02-14 17:59:21,557 Importing AvifImagePlugin
+2026-02-14 17:59:21,559 Importing BlpImagePlugin
+2026-02-14 17:59:21,560 Importing BmpImagePlugin
+2026-02-14 17:59:21,560 Importing BufrStubImagePlugin
+2026-02-14 17:59:21,561 Importing CurImagePlugin
+2026-02-14 17:59:21,562 Importing DcxImagePlugin
+2026-02-14 17:59:21,563 Importing DdsImagePlugin
+2026-02-14 17:59:21,566 Importing EpsImagePlugin
+2026-02-14 17:59:21,567 Importing FitsImagePlugin
+2026-02-14 17:59:21,567 Importing FliImagePlugin
+2026-02-14 17:59:21,568 Importing FpxImagePlugin
+2026-02-14 17:59:21,571 Importing FtexImagePlugin
+2026-02-14 17:59:21,572 Importing GbrImagePlugin
+2026-02-14 17:59:21,573 Importing GifImagePlugin
+2026-02-14 17:59:21,573 Importing GribStubImagePlugin
+2026-02-14 17:59:21,573 Importing Hdf5StubImagePlugin
+2026-02-14 17:59:21,574 Importing IcnsImagePlugin
+2026-02-14 17:59:21,576 Importing IcoImagePlugin
+2026-02-14 17:59:21,577 Importing ImImagePlugin
+2026-02-14 17:59:21,578 Importing ImtImagePlugin
+2026-02-14 17:59:21,579 Importing IptcImagePlugin
+2026-02-14 17:59:21,579 Importing JpegImagePlugin
+2026-02-14 17:59:21,579 Importing Jpeg2KImagePlugin
+2026-02-14 17:59:21,579 Importing McIdasImagePlugin
+2026-02-14 17:59:21,580 Importing MicImagePlugin
+2026-02-14 17:59:21,582 Importing MpegImagePlugin
+2026-02-14 17:59:21,583 Importing MpoImagePlugin
+2026-02-14 17:59:21,583 Importing MspImagePlugin
+2026-02-14 17:59:21,584 Importing PalmImagePlugin
+2026-02-14 17:59:21,585 Importing PcdImagePlugin
+2026-02-14 17:59:21,585 Importing PcxImagePlugin
+2026-02-14 17:59:21,586 Importing PdfImagePlugin
+2026-02-14 17:59:21,590 Importing PixarImagePlugin
+2026-02-14 17:59:21,591 Importing PngImagePlugin
+2026-02-14 17:59:21,591 Importing PpmImagePlugin
+2026-02-14 17:59:21,591 Importing PsdImagePlugin
+2026-02-14 17:59:21,591 Importing QoiImagePlugin
+2026-02-14 17:59:21,592 Importing SgiImagePlugin
+2026-02-14 17:59:21,593 Importing SpiderImagePlugin
+2026-02-14 17:59:21,593 Importing SunImagePlugin
+2026-02-14 17:59:21,594 Importing TgaImagePlugin
+2026-02-14 17:59:21,595 Importing TiffImagePlugin
+2026-02-14 17:59:21,595 Importing WebPImagePlugin
+2026-02-14 17:59:21,597 Importing WmfImagePlugin
+2026-02-14 17:59:21,598 Importing XbmImagePlugin
+2026-02-14 17:59:21,599 Importing XpmImagePlugin
+2026-02-14 17:59:21,599 Importing XVThumbImagePlugin
+2026-02-14 18:01:39,148 Main script starting...
+2026-02-14 18:04:32,034 Main script starting...
+2026-02-14 18:04:32,202  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 18:04:32,202 Initializing App
+2026-02-14 18:04:33,273 STREAM b'IHDR' 16 13
+2026-02-14 18:04:33,273 STREAM b'iTXt' 41 790
+2026-02-14 18:04:33,273 STREAM b'IDAT' 843 8192
+2026-02-14 18:04:33,356 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 18:04:33,356 STREAM b'IHDR' 16 13
+2026-02-14 18:04:33,356 STREAM b'iTXt' 41 790
+2026-02-14 18:04:33,356 STREAM b'IDAT' 843 8192
+2026-02-14 18:04:33,400 Importing AvifImagePlugin
+2026-02-14 18:04:33,402 Importing BlpImagePlugin
+2026-02-14 18:04:33,404 Importing BmpImagePlugin
+2026-02-14 18:04:33,404 Importing BufrStubImagePlugin
+2026-02-14 18:04:33,404 Importing CurImagePlugin
+2026-02-14 18:04:33,405 Importing DcxImagePlugin
+2026-02-14 18:04:33,406 Importing DdsImagePlugin
+2026-02-14 18:04:33,409 Importing EpsImagePlugin
+2026-02-14 18:04:33,411 Importing FitsImagePlugin
+2026-02-14 18:04:33,411 Importing FliImagePlugin
+2026-02-14 18:04:33,412 Importing FpxImagePlugin
+2026-02-14 18:04:33,416 Importing FtexImagePlugin
+2026-02-14 18:04:33,417 Importing GbrImagePlugin
+2026-02-14 18:04:33,418 Importing GifImagePlugin
+2026-02-14 18:04:33,418 Importing GribStubImagePlugin
+2026-02-14 18:04:33,419 Importing Hdf5StubImagePlugin
+2026-02-14 18:04:33,420 Importing IcnsImagePlugin
+2026-02-14 18:04:33,422 Importing IcoImagePlugin
+2026-02-14 18:04:33,423 Importing ImImagePlugin
+2026-02-14 18:04:33,424 Importing ImtImagePlugin
+2026-02-14 18:04:33,425 Importing IptcImagePlugin
+2026-02-14 18:04:33,426 Importing JpegImagePlugin
+2026-02-14 18:04:33,426 Importing Jpeg2KImagePlugin
+2026-02-14 18:04:33,426 Importing McIdasImagePlugin
+2026-02-14 18:04:33,427 Importing MicImagePlugin
+2026-02-14 18:04:33,429 Importing MpegImagePlugin
+2026-02-14 18:04:33,430 Importing MpoImagePlugin
+2026-02-14 18:04:33,431 Importing MspImagePlugin
+2026-02-14 18:04:33,431 Importing PalmImagePlugin
+2026-02-14 18:04:33,432 Importing PcdImagePlugin
+2026-02-14 18:04:33,433 Importing PcxImagePlugin
+2026-02-14 18:04:33,433 Importing PdfImagePlugin
+2026-02-14 18:04:33,437 Importing PixarImagePlugin
+2026-02-14 18:04:33,439 Importing PngImagePlugin
+2026-02-14 18:04:33,439 Importing PpmImagePlugin
+2026-02-14 18:04:33,439 Importing PsdImagePlugin
+2026-02-14 18:04:33,439 Importing QoiImagePlugin
+2026-02-14 18:04:33,440 Importing SgiImagePlugin
+2026-02-14 18:04:33,441 Importing SpiderImagePlugin
+2026-02-14 18:04:33,442 Importing SunImagePlugin
+2026-02-14 18:04:33,442 Importing TgaImagePlugin
+2026-02-14 18:04:33,443 Importing TiffImagePlugin
+2026-02-14 18:04:33,443 Importing WebPImagePlugin
+2026-02-14 18:04:33,445 Importing WmfImagePlugin
+2026-02-14 18:04:33,446 Importing XbmImagePlugin
+2026-02-14 18:04:33,447 Importing XpmImagePlugin
+2026-02-14 18:04:33,447 Importing XVThumbImagePlugin
+2026-02-14 18:05:52,079 Main script starting...
+2026-02-14 18:05:52,246  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 18:05:52,246 Initializing App
+2026-02-14 18:05:53,306 STREAM b'IHDR' 16 13
+2026-02-14 18:05:53,306 STREAM b'iTXt' 41 790
+2026-02-14 18:05:53,306 STREAM b'IDAT' 843 8192
+2026-02-14 18:05:53,392 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 18:05:53,392 STREAM b'IHDR' 16 13
+2026-02-14 18:05:53,392 STREAM b'iTXt' 41 790
+2026-02-14 18:05:53,393 STREAM b'IDAT' 843 8192
+2026-02-14 18:05:53,432 Importing AvifImagePlugin
+2026-02-14 18:05:53,434 Importing BlpImagePlugin
+2026-02-14 18:05:53,436 Importing BmpImagePlugin
+2026-02-14 18:05:53,436 Importing BufrStubImagePlugin
+2026-02-14 18:05:53,437 Importing CurImagePlugin
+2026-02-14 18:05:53,437 Importing DcxImagePlugin
+2026-02-14 18:05:53,438 Importing DdsImagePlugin
+2026-02-14 18:05:53,442 Importing EpsImagePlugin
+2026-02-14 18:05:53,443 Importing FitsImagePlugin
+2026-02-14 18:05:53,444 Importing FliImagePlugin
+2026-02-14 18:05:53,445 Importing FpxImagePlugin
+2026-02-14 18:05:53,448 Importing FtexImagePlugin
+2026-02-14 18:05:53,449 Importing GbrImagePlugin
+2026-02-14 18:05:53,450 Importing GifImagePlugin
+2026-02-14 18:05:53,450 Importing GribStubImagePlugin
+2026-02-14 18:05:53,450 Importing Hdf5StubImagePlugin
+2026-02-14 18:05:53,451 Importing IcnsImagePlugin
+2026-02-14 18:05:53,453 Importing IcoImagePlugin
+2026-02-14 18:05:53,454 Importing ImImagePlugin
+2026-02-14 18:05:53,455 Importing ImtImagePlugin
+2026-02-14 18:05:53,456 Importing IptcImagePlugin
+2026-02-14 18:05:53,456 Importing JpegImagePlugin
+2026-02-14 18:05:53,456 Importing Jpeg2KImagePlugin
+2026-02-14 18:05:53,456 Importing McIdasImagePlugin
+2026-02-14 18:05:53,457 Importing MicImagePlugin
+2026-02-14 18:05:53,459 Importing MpegImagePlugin
+2026-02-14 18:05:53,460 Importing MpoImagePlugin
+2026-02-14 18:05:53,460 Importing MspImagePlugin
+2026-02-14 18:05:53,461 Importing PalmImagePlugin
+2026-02-14 18:05:53,462 Importing PcdImagePlugin
+2026-02-14 18:05:53,463 Importing PcxImagePlugin
+2026-02-14 18:05:53,463 Importing PdfImagePlugin
+2026-02-14 18:05:53,467 Importing PixarImagePlugin
+2026-02-14 18:05:53,468 Importing PngImagePlugin
+2026-02-14 18:05:53,468 Importing PpmImagePlugin
+2026-02-14 18:05:53,468 Importing PsdImagePlugin
+2026-02-14 18:05:53,468 Importing QoiImagePlugin
+2026-02-14 18:05:53,469 Importing SgiImagePlugin
+2026-02-14 18:05:53,470 Importing SpiderImagePlugin
+2026-02-14 18:05:53,471 Importing SunImagePlugin
+2026-02-14 18:05:53,471 Importing TgaImagePlugin
+2026-02-14 18:05:53,472 Importing TiffImagePlugin
+2026-02-14 18:05:53,472 Importing WebPImagePlugin
+2026-02-14 18:05:53,474 Importing WmfImagePlugin
+2026-02-14 18:05:53,474 Importing XbmImagePlugin
+2026-02-14 18:05:53,475 Importing XpmImagePlugin
+2026-02-14 18:05:53,476 Importing XVThumbImagePlugin
