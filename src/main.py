@@ -9,6 +9,9 @@ logging.info("Main script starting...")
 
 import time
 import threading
+import pystray
+from PIL import Image, ImageDraw
+
 try:
     import keyboard as keyboard_lib # Use updated name to avoid conflict with pynput variable if mixed
 except ImportError:
@@ -33,6 +36,32 @@ except ImportError as e:
     GUI_AVAILABLE = False
     OverlayApp = None
 
+def create_icon():
+    # Try to load custom icon
+    try:
+        icon_path = os.path.join(os.path.dirname(__file__), 'assets', 'icon.png')
+        if os.path.exists(icon_path):
+             return Image.open(icon_path)
+    except Exception as e:
+        logging.warning(f"Could not load icon.png: {e}")
+
+    # Fallback: Generate a simple 64x64 blue image
+    width = 64
+    height = 64
+    color1 = "blue"
+    color2 = "white"
+
+    image = Image.new('RGB', (width, height), color1)
+    dc = ImageDraw.Draw(image)
+    dc.rectangle(
+        (width // 2, 0, width, height // 2),
+        fill=color2)
+    dc.rectangle(
+        (0, height // 2, width // 2, height),
+        fill=color2)
+
+    return image
+
 class CtrlAIApp:
     def __init__(self):
         logging.info("Initializing App")
@@ -46,6 +75,31 @@ class CtrlAIApp:
 
         if GUI_AVAILABLE:
             self.gui = OverlayApp(submit_callback=self.on_commander_submit)
+            
+            # Set window icon if available
+            try:
+                icon_path = os.path.join(os.path.dirname(__file__), 'assets', 'icon.png')
+                if os.path.exists(icon_path):
+                    # For CustomTkinter/Tkinter on Windows, iconbitmap expects .ico mostly, 
+                    # but wm_iconphoto allows PNG.
+                    from PIL import ImageTk
+                    icon_img = ImageTk.PhotoImage(file=icon_path)
+                    self.gui.wm_iconphoto(True, icon_img)
+            except Exception as e:
+                logging.warning(f"Could not set window icon: {e}")
+
+    def stop_app(self, icon, item):
+        logging.info("Stopping app from tray...")
+        icon.stop()
+        if self.gui:
+            self.gui.quit()
+        os._exit(0)
+
+    def run_tray_icon(self):
+        icon = pystray.Icon("Ctrl-AI", create_icon(), menu=pystray.Menu(
+            pystray.MenuItem("Quit", self.stop_app)
+        ))
+        icon.run()
 
     def show_progress(self, message):
         if self.gui:
@@ -222,6 +276,9 @@ class CtrlAIApp:
         print("  Commander: Ctrl+Space")
         print("  Explain:   Ctrl+Alt+E")
         print("Press Ctrl+C to exit.")
+
+        # Start tray icon in background
+        threading.Thread(target=self.run_tray_icon, daemon=True).start()
 
         # Start listener in a separate thread so GUI can run in main thread
         listener_thread = threading.Thread(target=self.start_listener)
