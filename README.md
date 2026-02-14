@@ -1,6 +1,6 @@
 # Ctrl+AI v2.0
 
-<p align="center"><img src="src/assets/icon.png" width="100" alt="Ctrl+AI Logo"></p>
+<p align="center"><img src="Ctrl+AI.png" width="100" alt="Ctrl+AI Logo"></p>
 
 > **The AI Layer for Windows.**  
 > Bring intelligence to any app without Alt-Tabbing.

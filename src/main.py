@@ -39,11 +39,12 @@ except ImportError as e:
 def create_icon():
     # Try to load custom icon
     try:
-        icon_path = os.path.join(os.path.dirname(__file__), 'assets', 'icon.png')
+        # Look for Ctrl+AI.png in the project root (one level up from src)
+        icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Ctrl+AI.png')
         if os.path.exists(icon_path):
              return Image.open(icon_path)
     except Exception as e:
-        logging.warning(f"Could not load icon.png: {e}")
+        logging.warning(f"Could not load Ctrl+AI.png: {e}")
 
     # Fallback: Generate a simple 64x64 blue image
     width = 64
@@ -78,7 +79,8 @@ class CtrlAIApp:
             
             # Set window icon if available
             try:
-                icon_path = os.path.join(os.path.dirname(__file__), 'assets', 'icon.png')
+                # Look for Ctrl+AI.png in the project root (one level up from src)
+                icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Ctrl+AI.png')
                 if os.path.exists(icon_path):
                     # For CustomTkinter/Tkinter on Windows, iconbitmap expects .ico mostly, 
                     # but wm_iconphoto allows PNG.

@@ -489,3 +489,64 @@ I am experiencing a bu...'
 2026-02-14 14:18:48,544 Importing XpmImagePlugin
 2026-02-14 14:18:48,545 Importing XVThumbImagePlugin
 2026-02-14 14:19:10,519 Stopping app from tray...
+2026-02-14 14:22:29,156 Main script starting...
+2026-02-14 14:22:29,340  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 14:22:29,340 Initializing App
+2026-02-14 14:22:30,289 STREAM b'IHDR' 16 13
+2026-02-14 14:22:30,294 STREAM b'iTXt' 41 790
+2026-02-14 14:22:30,294 STREAM b'IDAT' 843 8192
+2026-02-14 14:22:30,352 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 14:22:30,353 STREAM b'IHDR' 16 13
+2026-02-14 14:22:30,353 STREAM b'iTXt' 41 790
+2026-02-14 14:22:30,353 STREAM b'IDAT' 843 8192
+2026-02-14 14:22:30,370 Importing AvifImagePlugin
+2026-02-14 14:22:30,372 Importing BlpImagePlugin
+2026-02-14 14:22:30,373 Importing BmpImagePlugin
+2026-02-14 14:22:30,374 Importing BufrStubImagePlugin
+2026-02-14 14:22:30,374 Importing CurImagePlugin
+2026-02-14 14:22:30,375 Importing DcxImagePlugin
+2026-02-14 14:22:30,375 Importing DdsImagePlugin
+2026-02-14 14:22:30,375 Importing EpsImagePlugin
+2026-02-14 14:22:30,380 Importing FitsImagePlugin
+2026-02-14 14:22:30,381 Importing FliImagePlugin
+2026-02-14 14:22:30,381 Importing FpxImagePlugin
+2026-02-14 14:22:30,382 Image: failed to import FpxImagePlugin: No module named 'olefile'
+2026-02-14 14:22:30,382 Importing FtexImagePlugin
+2026-02-14 14:22:30,384 Importing GbrImagePlugin
+2026-02-14 14:22:30,384 Importing GifImagePlugin
+2026-02-14 14:22:30,384 Importing GribStubImagePlugin
+2026-02-14 14:22:30,385 Importing Hdf5StubImagePlugin
+2026-02-14 14:22:30,385 Importing IcnsImagePlugin
+2026-02-14 14:22:30,387 Importing IcoImagePlugin
+2026-02-14 14:22:30,388 Importing ImImagePlugin
+2026-02-14 14:22:30,388 Importing ImtImagePlugin
+2026-02-14 14:22:30,388 Importing IptcImagePlugin
+2026-02-14 14:22:30,388 Importing JpegImagePlugin
+2026-02-14 14:22:30,388 Importing Jpeg2KImagePlugin
+2026-02-14 14:22:30,388 Importing McIdasImagePlugin
+2026-02-14 14:22:30,388 Importing MicImagePlugin
+2026-02-14 14:22:30,393 Image: failed to import MicImagePlugin: No module named 'olefile'
+2026-02-14 14:22:30,393 Importing MpegImagePlugin
+2026-02-14 14:22:30,393 Importing MpoImagePlugin
+2026-02-14 14:22:30,393 Importing MspImagePlugin
+2026-02-14 14:22:30,393 Importing PalmImagePlugin
+2026-02-14 14:22:30,393 Importing PcdImagePlugin
+2026-02-14 14:22:30,393 Importing PcxImagePlugin
+2026-02-14 14:22:30,393 Importing PdfImagePlugin
+2026-02-14 14:22:30,401 Importing PixarImagePlugin
+2026-02-14 14:22:30,402 Importing PngImagePlugin
+2026-02-14 14:22:30,402 Importing PpmImagePlugin
+2026-02-14 14:22:30,402 Importing PsdImagePlugin
+2026-02-14 14:22:30,403 Importing QoiImagePlugin
+2026-02-14 14:22:30,403 Importing SgiImagePlugin
+2026-02-14 14:22:30,404 Importing SpiderImagePlugin
+2026-02-14 14:22:30,405 Importing SunImagePlugin
+2026-02-14 14:22:30,405 Importing TgaImagePlugin
+2026-02-14 14:22:30,406 Importing TiffImagePlugin
+2026-02-14 14:22:30,406 Importing WebPImagePlugin
+2026-02-14 14:22:30,407 Importing WmfImagePlugin
+2026-02-14 14:22:30,408 Importing XbmImagePlugin
+2026-02-14 14:22:30,409 Importing XpmImagePlugin
+2026-02-14 14:22:30,410 Importing XVThumbImagePlugin
+2026-02-14 14:22:45,314 [Explain] Triggered (Ctrl+Alt+E)
+2026-02-14 14:22:49,258 [Commander] Triggered (Ctrl+Space)

@@ -9,7 +9,8 @@ print(f"Found customtkinter at: {ctk_path}")
 # 2. Define the add-data argument
 # Format: "source_path;destination_folder" (on Windows)
 add_data_arg = f'{ctk_path}{os.pathsep}customtkinter/'
-assets_arg = f'src/assets{os.pathsep}assets/'
+# Add the single icon file from root to root of dist
+icon_arg = f'Ctrl+AI.png{os.pathsep}.'
 
 # 3. Run PyInstaller
 print("Starting PyInstaller build for Ctrl-AI...")
@@ -20,6 +21,6 @@ PyInstaller.__main__.run([
     '--onefile',                    # Create a single executable file
     '--noconsole',                  # No console window (GUI application)
     f'--add-data={add_data_arg}',   # Include customtkinter theme/json files
-    f'--add-data={assets_arg}',     # Include assets folder
+    f'--add-data={icon_arg}',       # Include icon file
     '--clean',                      # Clean PyInstaller cache and remove temp files
 ])
