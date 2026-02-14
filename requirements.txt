@@ -5,4 +5,5 @@ customtkinter
 python-dotenv
 groq
 google-generativeai
+keyboard
 

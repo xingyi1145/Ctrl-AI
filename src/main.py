@@ -1,11 +1,25 @@
 print("Main starting...")
 import logging
+import ctypes
+import os
+import platform
+import traceback
 logging.basicConfig(filename='debug.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 logging.info("Main script starting...")
 
 import time
 import threading
-from pynput import keyboard
+try:
+    import keyboard as keyboard_lib # Use updated name to avoid conflict with pynput variable if mixed
+except ImportError:
+    keyboard_lib = None
+
+# Fallback for non-linux systems or if keyboard lib fails
+try:
+    from pynput import keyboard as pynput_keyboard
+except ImportError:
+    pynput_keyboard = None
+
 from clipboard_utils import capture_selection, paste_text
 from ai_handler import AIHandler
 
@@ -162,22 +176,57 @@ class CtrlAIApp:
             self.hide_progress()
 
     def start_listener(self):
-        # Define hotkeys
-        # pynput format: <modifier>+<key>
-        hotkeys = {
-            '<ctrl>+<space>': self.on_commander,
-            '<ctrl>+<shift>+h': self.on_refactor,
-            '<ctrl>+<shift>+d': self.on_redactor
-        }
+        # Determine backend based on OS
+        system = platform.system()
         
-        logging.info("Starting Hotkey Listener...")
-        # Non-blocking start if we want to join manually, but listener.join() is blocking
-        with keyboard.GlobalHotKeys(hotkeys) as self.listener:
+        # On Linux with root, prefer 'keyboard' library for Wayland support
+        if system == "Linux" and is_admin() and keyboard_lib:
+            logging.info("Starting Hotkey Listener (Backend: keyboard library)...")
+            print("Backend: 'keyboard' (Wayland/EVDEV compatible)")
+            
+            # keyboard library format
             try:
-                self.listener.join()
+                # Debug hook to see what keys are detected (helps diagnose mapping issues)
+                def debug_key_hook(event):
+                    logging.debug(f"KEY_EVENT: {event.name} ({event.event_type})")
+                keyboard_lib.hook(debug_key_hook)
+
+                logging.info("Registering hotkey: ctrl+space")
+                keyboard_lib.add_hotkey('ctrl+space', self.on_commander)
+                
+                logging.info("Registering hotkey: ctrl+shift+h")
+                keyboard_lib.add_hotkey('ctrl+shift+h', self.on_refactor)
+                
+                logging.info("Registering hotkey: ctrl+shift+d")
+                keyboard_lib.add_hotkey('ctrl+shift+d', self.on_redactor)
+                
+                logging.info("Waiting for hotkeys...")
+                keyboard_lib.wait()
             except Exception as e:
-                logging.error(f"Listener execution error: {e}")
-                print(f"Listener error: {e}")
+                logging.error(f"Keyboard lib error: {e}")
+                logging.error(traceback.format_exc())
+                print(f"Keyboard lib error: {e}")
+                print("Check debug.log for full traceback.")
+                
+        elif pynput_keyboard:
+            logging.info("Starting Hotkey Listener (Backend: pynput)...")
+            print("Backend: 'pynput' (X11/Win/Mac compatible)")
+            
+            # pynput format: <modifier>+<key>
+            hotkeys = {
+                '<ctrl>+<space>': self.on_commander,
+                '<ctrl>+<shift>+h': self.on_refactor,
+                '<ctrl>+<shift>+d': self.on_redactor
+            }
+            
+            with pynput_keyboard.GlobalHotKeys(hotkeys) as self.listener:
+                try:
+                    self.listener.join()
+                except Exception as e:
+                    logging.error(f"Listener execution error: {e}")
+                    print(f"Listener error: {e}")
+        else:
+            print("Critical Error: No valid keyboard backend found (install 'keyboard' or 'pynput').")
 
     def start(self):
         print("Starting Ctrl+AI...")
@@ -207,7 +256,48 @@ class CtrlAIApp:
             except KeyboardInterrupt:
                 print("\nStopping...")
 
+def is_admin():
+    system = platform.system()
+    if system == "Windows":
+        try:
+            return ctypes.windll.shell32.IsUserAnAdmin() != 0
+        except Exception:
+            return False
+    elif system == "Linux":
+        return os.geteuid() == 0
+    elif system == "Darwin":
+        # macOS: root check covers most cases; Accessibility permissions
+        # are a separate concern handled by the OS prompt.
+        return os.geteuid() == 0
+    return True
+
+def get_privilege_warning():
+    system = platform.system()
+    if system == "Windows":
+        return (
+            " WARNING: Not running as Administrator. "
+            "Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'."
+        )
+    elif system == "Linux":
+        return (
+            " WARNING: Not running as root. "
+            "Global hotkeys may fail. Try: sudo python3 src/main.py  "
+            "Or add your user to the 'input' group: sudo usermod -aG input $USER  (then log out/in)."
+        )
+    elif system == "Darwin":
+        return (
+            " WARNING: Not running as root. "
+            "Global hotkeys may fail. Grant Accessibility access to your terminal in "
+            "System Settings > Privacy & Security > Accessibility, or run with: sudo python3 src/main.py"
+        )
+    return ""
+
 if __name__ == "__main__":
+    if not is_admin():
+        msg = get_privilege_warning()
+        print(msg)
+        logging.warning(msg)
+
     app = CtrlAIApp()
     try:
         app.start()
