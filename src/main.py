@@ -99,10 +99,10 @@ class CtrlAIApp:
         logging.info(f"Processing Commander: {prompt}")
         self.show_progress(f"Commander: {prompt}...")
         try:
-            result = self.ai.process_text(self.captured_text_for_commander, mode="commander", prompt_instruction=prompt)
-            print("[Commander] Pasting result...")
-            paste_text(result)
+            original = self.captured_text_for_commander
+            result = self.ai.process_text(original, mode="commander", prompt_instruction=prompt)
             logging.info("Commander done.")
+            self._show_diff_or_paste(original, result)
         finally:
             self.hide_progress()
 
@@ -127,20 +127,15 @@ class CtrlAIApp:
         threading.Thread(target=self.process_refactor, args=(text,)).start()
 
     def process_refactor(self, text):
-        # Mock processing
         logging.info("[Refactor] Sending to AI...")
         print("[Refactor] Sending to AI...")
         self.show_progress("Refactoring...")
         
         try:
             result = self.ai.process_text(text, mode="refactor")
-            
-            # 3. Auto-paste
-            logging.info("[Refactor] Pasting result...")
-            print("[Refactor] Pasting result...")
-            paste_text(result)
-            logging.info("[Refactor] Done.")
-            print("[Refactor] Done.")
+            logging.info("[Refactor] Showing diff for review...")
+            print("[Refactor] Showing diff for review...")
+            self._show_diff_or_paste(text, result)
         finally:
             self.hide_progress()
 
@@ -166,14 +161,24 @@ class CtrlAIApp:
         
         try:
             result = self.ai.process_text(text, mode="redactor")
-            
-            logging.info("[Redactor] Pasting result...")
-            print("[Redactor] Pasting result...")
-            paste_text(result)
-            logging.info("[Redactor] Done.")
-            print("[Redactor] Done.")
+            logging.info("[Redactor] Showing diff for review...")
+            print("[Redactor] Showing diff for review...")
+            self._show_diff_or_paste(text, result)
         finally:
             self.hide_progress()
+
+    def _show_diff_or_paste(self, original, result):
+        """Show the diff window for review. Paste only if user accepts."""
+        def on_accept(final_text):
+            logging.info("[Diff] User accepted. Pasting...")
+            print("[Diff] User accepted. Pasting...")
+            paste_text(final_text)
+
+        if self.gui:
+            self.gui.after(0, lambda: self.gui.show_diff(original, result, on_accept))
+        else:
+            # No GUI available — fall back to auto-paste
+            paste_text(result)
 
     def start_listener(self):
         # Determine backend based on OS

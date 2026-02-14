@@ -138,3 +138,19 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-02-14 12:12:01,421 [Commander] Triggered (Ctrl+Space)
 2026-02-14 12:12:14,535 Processing Commander: summarize what's happening
 2026-02-14 12:12:16,097 Commander done.
+2026-02-14 12:17:57,805 Main script starting...
+2026-02-14 12:17:57,963  WARNING: Not running as Administrator. Global hotkeys may fail. Right-click your terminal and select 'Run as Administrator'.
+2026-02-14 12:17:57,963 Initializing App
+2026-02-14 12:17:58,940 Starting Hotkey Listener (Backend: pynput)...
+2026-02-14 12:18:10,736 [Commander] Triggered (Ctrl+Space)
+2026-02-14 12:18:16,803 Processing Commander: fix grammer
+2026-02-14 12:18:18,136 Commander done.
+2026-02-14 12:18:23,278 [Diff] User accepted. Pasting...
+2026-02-14 12:18:27,450 [Commander] Triggered (Ctrl+Space)
+2026-02-14 12:18:32,440 Processing Commander: fix grammer
+2026-02-14 12:18:33,571 Commander done.
+2026-02-14 12:18:36,806 [Diff] User accepted. Pasting...
+2026-02-14 12:18:39,819 [Commander] Triggered (Ctrl+Space)
+2026-02-14 12:18:44,555 Processing Commander: fix grammer
+2026-02-14 12:18:45,538 Commander done.
+2026-02-14 12:18:52,741 [Diff] User accepted. Pasting...
